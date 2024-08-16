@@ -15,7 +15,7 @@
     "utctime_updated": "2022-01-07T20:48:45.000000Z",
     "package_name": "phantom_skypeforbusiness",
     "main_module": "skypeforbusiness_connector.py",
-    "min_phantom_version": "4.8.24304",
+    "min_phantom_version": "6.2.1",
     "app_wizard_version": "1.0.0",
     "rest_handler": "skypeforbusiness_connector._handle_rest_request",
     "configuration": {
@@ -447,51 +447,55 @@
         "wheel": [
             {
                 "module": "Django",
-                "input_file": "wheels/Django-3.2.5-py3-none-any.whl"
+                "input_file": "wheels/py3/Django-3.2.16-py3-none-any.whl"
             },
             {
                 "module": "asgiref",
-                "input_file": "wheels/asgiref-3.4.1-py3-none-any.whl"
-            },
-            {
-                "module": "beautifulsoup4",
-                "input_file": "wheels/beautifulsoup4-4.9.1-py3-none-any.whl"
-            },
-            {
-                "module": "certifi",
-                "input_file": "wheels/certifi-2021.10.8-py2.py3-none-any.whl"
+                "input_file": "wheels/py3/asgiref-3.4.1-py3-none-any.whl"
             },
             {
                 "module": "chardet",
-                "input_file": "wheels/chardet-3.0.4-py2.py3-none-any.whl"
-            },
-            {
-                "module": "idna",
-                "input_file": "wheels/idna-2.10-py2.py3-none-any.whl"
+                "input_file": "wheels/shared/chardet-3.0.4-py2.py3-none-any.whl"
             },
             {
                 "module": "pytz",
-                "input_file": "wheels/pytz-2021.3-py2.py3-none-any.whl"
-            },
-            {
-                "module": "requests",
-                "input_file": "wheels/requests-2.25.0-py2.py3-none-any.whl"
-            },
-            {
-                "module": "soupsieve",
-                "input_file": "wheels/soupsieve-2.3-py3-none-any.whl"
+                "input_file": "wheels/shared/pytz-2024.1-py2.py3-none-any.whl"
             },
             {
                 "module": "sqlparse",
-                "input_file": "wheels/sqlparse-0.4.2-py3-none-any.whl"
+                "input_file": "wheels/py3/sqlparse-0.4.4-py3-none-any.whl"
             },
             {
                 "module": "typing_extensions",
-                "input_file": "wheels/typing_extensions-3.10.0.2-py3-none-any.whl"
+                "input_file": "wheels/py3/typing_extensions-4.1.1-py3-none-any.whl"
+            }
+        ]
+    },
+    "pip39_dependencies": {
+        "wheel": [
+            {
+                "module": "Django",
+                "input_file": "wheels/py3/Django-3.2.16-py3-none-any.whl"
             },
             {
-                "module": "urllib3",
-                "input_file": "wheels/urllib3-1.26.7-py2.py3-none-any.whl"
+                "module": "asgiref",
+                "input_file": "wheels/py3/asgiref-3.8.1-py3-none-any.whl"
+            },
+            {
+                "module": "chardet",
+                "input_file": "wheels/shared/chardet-3.0.4-py2.py3-none-any.whl"
+            },
+            {
+                "module": "pytz",
+                "input_file": "wheels/shared/pytz-2024.1-py2.py3-none-any.whl"
+            },
+            {
+                "module": "sqlparse",
+                "input_file": "wheels/py3/sqlparse-0.5.1-py3-none-any.whl"
+            },
+            {
+                "module": "typing_extensions",
+                "input_file": "wheels/py3/typing_extensions-4.12.2-py3-none-any.whl"
             }
         ]
     }
