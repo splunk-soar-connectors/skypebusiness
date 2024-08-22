@@ -2,7 +2,7 @@
 # Skype for Business
 
 Publisher: Splunk  
-Connector Version: 2.0.2  
+Connector Version: 2.0.3  
 Product Vendor: Microsoft  
 Product Name: Skype for Business  
 Product Version Supported (regex): ".\*"  
