@@ -2,15 +2,15 @@
 # Skype for Business
 
 Publisher: Splunk  
-Connector Version: 2\.0\.1  
+Connector Version: 2.0.3  
 Product Vendor: Microsoft  
 Product Name: Skype for Business  
-Product Version Supported (regex): "\.\*"  
-Minimum Product Version: 4\.8\.24304  
+Product Version Supported (regex): ".\*"  
+Minimum Product Version: 6.2.1  
 
 This app integrates with Skype for Business to support various investigative actions
 
-[comment]: # " File: readme.md"
+[comment]: # " File: README.md"
 [comment]: # "  Copyright (c) 2019-2020 Splunk Inc."
 [comment]: # ""
 [comment]: # "Licensed under Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.txt)"
@@ -77,8 +77,8 @@ The below configuration variables are required for this Connector to operate.  T
 
 VARIABLE | REQUIRED | TYPE | DESCRIPTION
 -------- | -------- | ---- | -----------
-**client\_id** |  required  | string | Client ID
-**client\_secret** |  required  | password | Client secret
+**client_id** |  required  | string | Client ID
+**client_secret** |  required  | password | Client secret
 **tenant** |  optional  | string | Tenant name or Tenant ID
 
 ### Supported Actions  
@@ -108,20 +108,20 @@ Read only: **False**
 #### Action Parameters
 PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 --------- | -------- | ----------- | ---- | --------
-**contact\_email** |  required  | Email or URI of a contact to send message to | string |  `skype contact uri`  `email` 
+**contact_email** |  required  | Email or URI of a contact to send message to | string |  `skype contact uri`  `email` 
 **message** |  required  | Message to send | string | 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.status | string | 
-action\_result\.parameter\.contact\_email | string |  `skype contact uri`  `email` 
-action\_result\.parameter\.message | string | 
-action\_result\.data | string | 
-action\_result\.summary | string | 
-action\_result\.message | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.status | string |  |   success  failed 
+action_result.parameter.contact_email | string |  `skype contact uri`  `email`  |   sip:testuser@example.onmicrosoft.com 
+action_result.parameter.message | string |  |   hey buddy 
+action_result.data | string |  |  
+action_result.summary | string |  |  
+action_result.message | string |  |   Message sent 
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1   
 
 ## action: 'list groups'
 List all groups of a user
@@ -133,22 +133,22 @@ Read only: **True**
 No parameters are required for this action
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.status | string | 
-action\_result\.data\.\*\.7f9d3705\-81be\-4838\-8f33\-35910b128f6d | string | 
-action\_result\.data\.\*\.\_links\.groupContacts\.href | string | 
-action\_result\.data\.\*\.\_links\.self\.href | string | 
-action\_result\.data\.\*\.\_links\.self\.revision | string | 
-action\_result\.data\.\*\.\_links\.subscribeToGroupPresence\.href | string | 
-action\_result\.data\.\*\.etag | string | 
-action\_result\.data\.\*\.id | string | 
-action\_result\.data\.\*\.name | string | 
-action\_result\.data\.\*\.rel | string | 
-action\_result\.summary\.total\_groups | numeric | 
-action\_result\.message | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.status | string |  |   success  failed 
+action_result.data.\*.7f9d3705-81be-4838-8f33-35910b128f6d | string |  |   please pass this in a PUT request 
+action_result.data.\*._links.groupContacts.href | string |  |   /ucwa/oauth/v1/applications/102004749826/people/contacts?groupId=P_B2yQ8EDVUY4YWwX0CUVEW4DvMCQsxpRCtECls3wcc%3d 
+action_result.data.\*._links.self.href | string |  |   /ucwa/oauth/v1/applications/102004749826/people/groups/P_B2yQ8EDVUY4YWwX0CUVEW4DvMCQsxpRCtECls3wcc= 
+action_result.data.\*._links.self.revision | string |  |   2 
+action_result.data.\*._links.subscribeToGroupPresence.href | string |  |   /ucwa/oauth/v1/applications/102004749826/people/presenceSubscriptions?groupId=P_B2yQ8EDVUY4YWwX0CUVEW4DvMCQsxpRCtECls3wcc%3d 
+action_result.data.\*.etag | string |  |   1641855850 
+action_result.data.\*.id | string |  |   P_B2yQ8EDVUY4YWwX0CUVEW4DvMCQsxpRCtECls3wcc= 
+action_result.data.\*.name | string |  |   my group 
+action_result.data.\*.rel | string |  |   group 
+action_result.summary.total_groups | numeric |  |   4 
+action_result.message | string |  |   Total groups: 4 
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1   
 
 ## action: 'list contacts'
 List all contacts of a user
@@ -160,27 +160,27 @@ Read only: **True**
 No parameters are required for this action
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.status | string | 
-action\_result\.data\.\*\.\_links\.contactLocation\.href | string | 
-action\_result\.data\.\*\.\_links\.contactNote\.href | string | 
-action\_result\.data\.\*\.\_links\.contactPhoto\.href | string | 
-action\_result\.data\.\*\.\_links\.contactPresence\.href | string | 
-action\_result\.data\.\*\.\_links\.contactPrivacyRelationship\.href | string | 
-action\_result\.data\.\*\.\_links\.contactPrivacyRelationship\.revision | string | 
-action\_result\.data\.\*\.\_links\.contactSupportedModalities\.href | string | 
-action\_result\.data\.\*\.\_links\.self\.href | string | 
-action\_result\.data\.\*\.emailAddresses | string |  `email` 
-action\_result\.data\.\*\.etag | string | 
-action\_result\.data\.\*\.expires | string | 
-action\_result\.data\.\*\.name | string | 
-action\_result\.data\.\*\.rel | string | 
-action\_result\.data\.\*\.sourceNetwork | string | 
-action\_result\.data\.\*\.type | string | 
-action\_result\.data\.\*\.uri | string |  `skype contact uri` 
-action\_result\.data\.\*\.workPhoneNumber | string | 
-action\_result\.summary\.total\_contacts | numeric | 
-action\_result\.message | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric | 
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.status | string |  |   success  failed 
+action_result.data.\*._links.contactLocation.href | string |  |   /ucwa/oauth/v1/applications/102407129166/people/testuser@example.onmicrosoft.com/location 
+action_result.data.\*._links.contactNote.href | string |  |   /ucwa/oauth/v1/applications/102407129166/people/testuser@example.onmicrosoft.com/note 
+action_result.data.\*._links.contactPhoto.href | string |  |   /ucwa/oauth/v1/applications/102407129166/photos/testuser@example.onmicrosoft.com 
+action_result.data.\*._links.contactPresence.href | string |  |   /ucwa/oauth/v1/applications/102407129166/people/testuser@example.onmicrosoft.com/presence 
+action_result.data.\*._links.contactPrivacyRelationship.href | string |  |   /ucwa/oauth/v1/applications/102407129166/people/testuser@example.onmicrosoft.com/privacyRelationship 
+action_result.data.\*._links.contactPrivacyRelationship.revision | string |  |   2 
+action_result.data.\*._links.contactSupportedModalities.href | string |  |   /ucwa/oauth/v1/applications/102407129166/people/testuser@example.onmicrosoft.com/supportedMedia 
+action_result.data.\*._links.self.href | string |  |   /ucwa/oauth/v1/applications/102407129166/people/testuser@example.onmicrosoft.com 
+action_result.data.\*.emailAddresses | string |  `email`  |   testuser@example.onmicrosoft.com 
+action_result.data.\*.etag | string |  |   1269892302 
+action_result.data.\*.expires | string |  |   /Date(1530275859757)/ 
+action_result.data.\*.name | string |  |   testuser 
+action_result.data.\*.rel | string |  |   contact 
+action_result.data.\*.sourceNetwork | string |  |   SameEnterprise 
+action_result.data.\*.type | string |  |   User 
+action_result.data.\*.uri | string |  `skype contact uri`  |   sip:testuser@example.onmicrosoft.com 
+action_result.data.\*.workPhoneNumber | string |  |   9876543210 
+action_result.summary.total_contacts | numeric |  |   2 
+action_result.message | string |  |   Total contacts: 2 
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1 

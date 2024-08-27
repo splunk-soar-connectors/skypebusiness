@@ -12,30 +12,31 @@
 # the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
 # either express or implied. See the License for the specific language governing permissions
 # and limitations under the License.
+import base64
+import grp
 import json
 import os
+import pwd
+import sys
 import time
 import uuid
-import pwd
-import grp
-import requests
-import base64
-import sys
-from bs4 import UnicodeDammit, BeautifulSoup
-from django.http import HttpResponse
 
 import phantom.app as phantom
-from phantom.base_connector import BaseConnector
+import requests
+from bs4 import BeautifulSoup, UnicodeDammit
+from django.http import HttpResponse
 from phantom.action_result import ActionResult
+from phantom.base_connector import BaseConnector
 
 from skypeforbusiness_consts import *
 
 try:
-    from urlparse import urlparse
     import urllib
+
+    from urlparse import urlparse
 except:
-    from urllib.parse import urlparse
     import urllib.parse as urllib
+    from urllib.parse import urlparse
 
 
 def _handle_login_redirect(request, key):
@@ -366,7 +367,10 @@ class SkypeForBusinessConnector(BaseConnector):
 
         # everything else is actually an error at this point
         message = "Can't process response from server. Status Code: {0} Data from server: {1}".\
-            format(request_response.status_code, self._handle_py_ver_compat_for_input_str(request_response.text.replace('{', '{{').replace('}', '}}')))
+            format(
+                request_response.status_code,
+                self._handle_py_ver_compat_for_input_str(request_response.text.replace('{', '{{').replace('}', '}}'))
+            )
 
         return RetVal(action_result.set_status(phantom.APP_ERROR, message), None)
 
@@ -410,7 +414,8 @@ class SkypeForBusinessConnector(BaseConnector):
         try:
             error_msg = self._handle_py_ver_compat_for_input_str(error_msg)
         except TypeError:
-            error_msg = "Error occurred while connecting to the GitHub server. Please check the asset configuration and|or the action parameters."
+            error_msg = "Error occurred while connecting to the GitHub server. \
+            Please check the asset configuration and|or the action parameters."
         except:
             error_msg = "Unknown error occurred. Please check the asset configuration and|or action parameters."
 
@@ -1088,8 +1093,9 @@ class SkypeForBusinessConnector(BaseConnector):
 
 if __name__ == '__main__':
 
-    import pudb
     import argparse
+
+    import pudb
 
     pudb.set_trace()
 
